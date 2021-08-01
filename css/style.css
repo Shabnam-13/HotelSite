@@ -1,0 +1,571 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+body{
+    font-family: 'Montserrat',Sans-serif;
+}
+
+/* Sidebar Nav */
+#sidenav{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0px;
+    height: 100vh;
+    z-index: 999;
+    background-color: #f9f9f9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-y: scroll;
+    transition: all 0.3s linear;
+}
+
+#sidenav .navMenu ul{
+    padding: 0;
+}
+
+#sidenav .navMenu ul li{
+    list-style: none;
+}
+
+#sidenav .navMenu ul li a{
+    color: #222;
+    text-transform: uppercase;
+    line-height: 2em;
+    display: inline-block;
+}
+
+#sidenav.active{
+    width: 400px !important;
+    transition: all 0.3s linear;
+}
+
+#wrapper{
+    transition: skewY 0.3s linear;
+}
+
+#wrapper.active{
+    transform: translateX(15%) rotateY( 
+        310deg
+         ) skewY(
+        9deg
+        );
+            position: fixed;
+            width: 100%;
+            min-height: 100%;
+            transition: skewY 0.3s linear;
+}
+
+/* Navbar Css */
+#myNav{
+    transition: all 0.5s ease 0s;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 999;
+    background-color: transparent;
+}
+
+#myNavbar{
+    display: flex;
+    padding: 20px 16px;
+    justify-content: space-between;
+}
+
+#myNavbar .firstSide{
+    display: flex;
+    align-items: center;
+}
+
+#myNavbar .firstSide .navIcon{
+    background: unset;
+    border: unset;
+    color: #b0a692;
+    margin-right: 15px;
+    cursor: pointer;
+}
+
+#myNavbar .firstSide .navIcon:focus{
+    outline: unset;
+}
+
+#myNavbar .navItems .navLink{
+    font-size: 12px;
+    font-weight: 500;
+    text-transform: uppercase;
+    color: white;
+    text-decoration: none;
+    font-family: 'Montserrat',Sans-serif;
+    margin-right: 15px;
+    position: relative;
+}
+
+#myNavbar .navItems .navLink:before{
+    content: "";
+    position: absolute;
+    width: 0%;
+    height: 1px;
+    background: white;
+    bottom: -2px;
+    right: 0;
+    transition: all linear .25s;
+}
+
+#myNavbar .navItems .navLink:hover::before{
+    width: 100%;
+    left: 0;
+    transition: all linear .25s;
+}
+
+#myNavbar .navLogo{
+    display: inline-block;
+    width: 80px;
+}
+
+#myNavbar .navLogo .logoBlack{
+    display: none;
+}
+
+#myNavbar .navLogo img{
+    max-width: 100%;
+}
+
+/* Fixed Navbar */
+#myNav.fixedNav{
+    position: fixed !important;
+    background-color: White !important; 
+}
+
+.fixedNav  .navLogo .logoBlack{
+    display: block !important;
+}
+
+.fixedNav  .navLogo .logoWhite{
+    display: none !important;
+}
+
+.fixedNav .navItems .navLink,.fixedNav .firstSide .navIcon{
+    color: black !important;
+}
+
+.fixedNav .navItems .navLink::before{
+    background-color: black !important;
+}
+
+/* Intro Section*/
+#introSection{
+    position: relative;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+}
+
+#introSection .homeSlide .slider .slideItems{
+    position: relative;
+    background: #161e27;
+    height: 100vh;
+    overflow: hidden;
+}
+
+#introSection .homeSlide .slider .slideItems .slideImg{
+    height: 100vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    animation: slideAnimationPrev 3s linear 0.5s;
+    /* transform: scale(0.5) translateY(-100%); */
+    transition: all linear 1s;
+    opacity: 0;
+}
+
+#introSection .homeSlide .slider .slideItems .slideImg.active{
+    transition: all linear 1s;
+    /* transform: translateY(0) scale(1); */
+    opacity:  1;
+    animation: slideAnimationActive 2s linear 0s;
+}
+
+#introSection .homeSlide .slider .slideItems .slideImg:before{
+    position: absolute;
+    content: "";
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    opacity: 0.35;
+}
+
+#introSection .homeSlide .slider .slideItems .slideImg .slideText{
+    position: absolute;
+    top: 58%;
+    width: 30%;
+    transform: translateY(-58%);
+}
+
+#introSection .homeSlide .slider .slideItems .slideImg .slideText h1{
+    text-transform: uppercase;
+    font-family: "Montserrat",Sans-serif;
+    font-size: 45px;
+    font-weight: 500;
+    line-height: 1.2em;
+    color: white;
+}
+
+#introSection .homeSlide .slider .slideItems .slideImg .slideText p{
+    text-transform: none;
+    font-family: "Carrois Gothic",Sans-serif;
+    font-size: 20px;
+    line-height: 1.5em;
+    color: rgba(255,255,255,.7);
+}
+
+#introSection .homeSlide .slider .slideItems .dots{
+    position: absolute;
+    z-index: 2;
+    bottom: 3%;
+    right: 48%;
+}
+
+#introSection .homeSlide .slider .slideItems .dots .dot{
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: 1px solid white;
+    display: inline-block;
+    margin-right: 5px;
+}
+
+#introSection .homeSlide .slider .slideItems .dots .dot.active, #introSection .homeSlide .slider .slideItems .dots .dot:hover{
+    background-color: white;
+}
+
+/* Simple Section */
+#simpleSection{
+    padding: 5rem 0;
+}
+
+#simpleSection .headingTitle h2{
+    color: #a68164;
+    font-size: 20px;
+    font-weight: 400;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+}
+
+#simpleSection .headingTitle h1{
+    color: #1d212a;
+    font-family: "Gothic A1",Sans-serif;
+    font-size: 28px;
+    font-weight: 400;
+    line-height: 1.6em;
+}
+
+/* Room Section */
+#roomSection {
+padding-bottom: 8rem;
+}
+
+#roomSection .room a{
+    color: #1d212a;
+    font-size: 14px;
+    line-height: 1;
+    text-decoration: none;
+}
+
+#roomSection .roomDescription .item{
+    height: 600px;
+}
+
+#roomSection .roomDescription .item .roomImg{
+    height: 600px;
+    width: 100%;
+}
+
+#roomSection .roomDescription .item .roomImg .img{
+    background-position: center;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+}
+
+#roomSection .roomDescription h3{
+    text-transform: uppercase;
+    font-family: Montserrat,Sans-serif;
+    font-size: 28px;
+    font-weight: 500;
+    line-height: 1em;
+    padding-bottom: 1.5rem;
+}
+
+#roomSection .roomDescription p{
+    margin-bottom: 2rem;
+}
+
+#roomSection .roomDescription p, #roomSection .roomDescription h5{
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+#roomSection .roomDescription h5{
+    color:#756963;
+    font-weight: 400;
+    margin: 0;
+}
+
+#roomSection .roomDescription .viewBtn{
+    color: #a68164;
+    font-size: 15px;
+    letter-spacing: 0;
+    text-decoration: none;
+    text-transform: capitalize;
+    border-bottom: 1px solid #a68164;
+    transition: all linear 0.3s;
+}
+
+#roomSection .roomDescription .viewBtn:hover{
+    border-color:white ;
+    transition: all linear 0.3s;
+}
+
+/*Slider Section  */
+#sliderSection .slider{
+    height: 750px;
+    position: relative;
+    background: #161e27;
+}
+
+#sliderSection .slider .slideImg{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    background-position: center;
+    background-size: cover;
+    position: absolute;
+    transition: all linear 0.5s;
+}
+
+#sliderSection .slider .slideImg.active{
+    z-index: 1;
+    width: 100%;
+    transition: all linear 0.5s;
+    animation: imgWidth .5s linear ;
+}
+
+#sliderSection .slider .dots{
+    position: absolute;
+    bottom: 2%;
+    left: 50%;
+    transform:translateX(-50%);
+    align-items: center;
+    z-index: 2;
+}
+
+#sliderSection .slider .dots .dot{
+    width: 15px;
+    height: 15px;
+    background-color: white;
+    border-radius: 50%;
+    margin-right:0.8rem ;
+    display: inline-block;
+}
+
+#sliderSection .slider .dots .dot.active{
+    width: 20px;
+    height: 20px;
+}
+
+#sliderSection .content{
+    background: #f0e9e4;
+    height: 750px;
+    padding: 150px 80px;
+}
+
+#sliderSection .content .text p{
+    color: #1d212a;
+    letter-spacing: 0;
+    font-size: 22px;
+    margin-bottom: 5rem;
+}
+
+#sliderSection .content .text .signature{
+    width: 203px;
+    margin-bottom: 2rem;
+}
+
+#sliderSection .content .text .signature img{
+    max-width: 100%;
+}
+
+#sliderSection .content .text h6{
+    color: #756963;
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+/* Service Section */
+#serviceSection{
+    padding-bottom: 6rem;
+}
+
+#serviceSection .service .serviceImg{
+    width: 100%;
+    height: 960px;
+}
+
+#serviceSection .service .serviceImg .img{
+    background-position: center;
+    background-size: cover;
+    width: 100%;
+    height: inherit;
+    background-repeat: no-repeat;
+}
+
+#serviceSection .service .content{
+    padding: 3.5rem;
+}
+
+#serviceSection .service .content h1{
+    color: #1d212a;
+    font-family: Montserrat,Sans-serif;
+    font-size: 32px;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+#serviceSection .service .content p{
+    font-size: 13px;
+    color: #222222;
+    line-height: 1.8;
+    margin-bottom: 30px;
+}
+
+#serviceSection .service .content a{
+    border: 1px solid #a68164;
+    padding: 14px 30px;
+    display: inline-block;
+    font-size: 14px;
+    line-height: 1;
+    color: #1d212a;
+}
+
+/* Addrerss Section */
+#addrerssSection{
+    background: #f0e9e4;
+}
+
+#addrerssSection .map iframe{
+    width: 100%;
+}
+
+#addrerssSection .address{
+    padding: 6rem 5rem;
+    height: 100%; 
+}
+
+#addrerssSection .address .title{
+    font-size: 22px;
+}
+
+/* Footer */
+footer{
+    padding: 4rem 0 0 0;
+    background: #161e27;
+}
+
+footer .logo{
+    width: 95px;
+}
+
+footer .logo img{
+    max-width: 100%;
+}
+
+footer .address{
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+footer .address .location{
+    color: #9b9b9b;
+}
+
+footer .address .phone{
+    color: #d8c2b2;
+}
+
+footer .menu ul{
+    padding: 0;
+}
+
+footer .menu ul li{
+    list-style: none;
+}
+
+footer .menu ul li a{
+    font-size: 13px;
+    line-height: 1.8;
+    color: #9b9b9b;
+    text-decoration: none;
+}
+
+footer .copyright{
+    font-size: 10px;
+    line-height: 1.8;
+    color: #9b9b9b;
+}
+
+/* Animations */
+@keyframes slideAnimationPrev {
+    0%{
+        transform: scale(1);
+        transform: translateY(0);
+    }
+    50% {
+       transform: scale(0.5);
+    }
+    100% {
+      transform: translateY(-100%);
+      
+    }
+}
+
+@keyframes slideAnimationActive {
+    0%{
+        transform: scale(0.5);
+        transform: translateY(100%);
+    }
+    50% {
+
+       transform:translateY(0);
+       transform: scale(0.5);
+    }
+    100% {
+      transform: scale(1);
+    }
+}
+
+@keyframes imgWidth {
+    0%{
+        width: 0%;
+    }
+    50%{
+        width: 50%;
+    }
+    100% {
+        width: 100%; 
+    }
+}
+
+@media only screen and (max-width: 1040px) {
+    #myNavbar .navItems{
+        display: none;
+    } 
+  }
