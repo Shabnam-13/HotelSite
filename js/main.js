@@ -26,9 +26,17 @@ $(document).ready(function () {
 
   //Side Navbar
   $(".navIcon").click(function () {
-    $("#sidenav").addClass("active");
-    $("#wrapper").addClass("active");
-    closeSidenav()
+    if(screen.width > 768){
+      $("#sidenav").addClass("activeLg");
+      $("#wrapper").addClass("activeLg");
+      closeSidenav()
+    }
+    else{
+      $("#sidenav").addClass("activeSm");
+      $("#wrapper").addClass("activeSm");
+      closeSidenav()
+    }
+
   })
 
   function closeSidenav() {
@@ -36,8 +44,10 @@ $(document).ready(function () {
       var sidenav = $("#sidenav");
       var sidenavBtn = $(".navIcon");
       if(!sidenav.is(e.target) && sidenav.has(e.target).length==0 && !sidenavBtn.is(e.target) && sidenavBtn.has(e.target).length==0){
-        $("#sidenav").removeClass("active");
-        $("#wrapper").removeClass("active");
+        $("#sidenav").removeClass("activeLg");
+        $("#wrapper").removeClass("activeLg");
+        $("#sidenav").removeClass("activeSm");
+        $("#wrapper").removeClass("activeSm");
         console.log("ygyug");
       }
     })
