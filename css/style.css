@@ -35,8 +35,13 @@ body{
     display: inline-block;
 }
 
-#sidenav.active{
+#sidenav.activeLg{
     width: 400px !important;
+    transition: all 0.3s linear;
+}
+
+#sidenav.activeSm{
+    width: 40% !important;
     transition: all 0.3s linear;
 }
 
@@ -44,7 +49,7 @@ body{
     transition: skewY 0.3s linear;
 }
 
-#wrapper.active{
+#wrapper.activeLg{
     transform: translateX(15%) rotateY( 
         310deg
          ) skewY(
@@ -54,6 +59,14 @@ body{
             width: 100%;
             min-height: 100%;
             transition: skewY 0.3s linear;
+}
+
+#wrapper.activeSm{
+    position: fixed;
+    width: 100%;
+    min-height: 100%;
+    transform: translateX(40%);
+    transition: all 0.3s linear;
 }
 
 /* Navbar Css */
@@ -182,6 +195,9 @@ body{
     /* transform: scale(0.5) translateY(-100%); */
     transition: all linear 1s;
     opacity: 0;
+    /* display: flex;
+    align-items: center;
+    justify-content: center; */
 }
 
 #introSection .homeSlide .slider .slideItems .slideImg.active{
@@ -383,7 +399,7 @@ padding-bottom: 8rem;
 #sliderSection .content{
     background: #f0e9e4;
     height: 750px;
-    padding: 150px 80px;
+    padding: 120px 80px;
 }
 
 #sliderSection .content .text p{
@@ -564,8 +580,59 @@ footer .copyright{
     }
 }
 
+/* Media queries */
 @media only screen and (max-width: 1040px) {
     #myNavbar .navItems{
         display: none;
     } 
-  }
+}
+
+@media only screen and (max-width: 991px) {
+    #introSection .homeSlide .slider .slideItems .slideImg .slideText{
+        width: 50%;
+    }
+
+    #sliderSection .content{
+        height: unset;
+        padding: 100px 20px;
+    }
+
+    #addrerssSection .address{
+        padding: 4rem 2rem;
+    }
+}
+
+@media only screen and (max-width: 576px) {
+    #introSection .homeSlide .slider .slideItems .slideImg .slideText h1{
+        font-size: 35px;
+    }
+
+    #introSection .homeSlide .slider .slideItems .slideImg .slideText p{
+        font-size: 16px;
+    }
+
+    #simpleSection{
+        padding-bottom: 3rem;
+    }
+
+    #simpleSection .headingTitle h1{
+        font-size:24px ;
+    }
+
+    #roomSection .room{
+        padding-bottom: 0.5rem;
+    }
+
+    #sliderSection .content .text p {
+        font-size: 18px;
+        margin-bottom: 3rem;
+    }
+
+    #sliderSection .content .text p {
+        font-size: 22px;
+    }
+    
+    #sidenav .navMenu ul li a{
+        font-size: 14px;
+    }
+}
